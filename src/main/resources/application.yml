@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: spring-boot-admin
+  boot:
+    admin:
+      ui:
+        brand: "Demo SBA"
+        title: "Demo SBA"
+  cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
+        service-labels:
+          spring-boot: true
+
+server:
+  port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 8081
+
+logging:
+  level:
+    org.springframework.cloud.kubernetes: TRACE
+    de.codecentric.boot.admin.discovery.ApplicationDiscoveryListener: DEBUG
